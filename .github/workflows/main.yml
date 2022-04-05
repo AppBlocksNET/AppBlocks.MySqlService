@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
+
 jobs:
   build:
 
@@ -17,19 +17,18 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore --configuration Release
-    - name: Pack
+    - name: Restore dependencies - ${{github.workflow}}.sln
+      run: dotnet restore src/${{github.workflow}}/${{github.workflow}}.sln
+    - name: Build - src/${{github.workflow}}/${{github.workflow}}.sln
+      run: dotnet build --no-restore --configuration Release src/${{github.workflow}}/${{github.workflow}}.sln
+    - name: Pack - src/${{github.workflow}}/${{github.workflow}}.sln
       run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source src/${{github.workflow}}/${{github.workflow}}.sln
-    - name: Publish
-      run: dotnet nuget push src/${{github.workflow}}/${{github.workflow}}/bin/Release/${{github.workflow}}.*.nupkg --api-key  ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+    - name: Publish - src/${{github.workflow}}/${{github.workflow}}/bin/Release/${{github.workflow}}.*.nupkg
+      run: dotnet nuget push src/${{github.workflow}}/${{github.workflow}}/bin/Release/${{github.workflow}}.*.nupkg --api-key ${{secrets.NUGET_KEY}} --source https://api.nuget.org/v3/index.json
       
       
       
       
-
 
 
 
