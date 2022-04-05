@@ -15,6 +15,7 @@
     <PackageTags>appblocks,mysql</PackageTags>
     <PackageReleaseNotes>init</PackageReleaseNotes>
     <PackageLicenseFile></PackageLicenseFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

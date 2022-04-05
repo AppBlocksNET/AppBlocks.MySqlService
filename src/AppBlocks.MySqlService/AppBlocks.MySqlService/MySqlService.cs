@@ -12,25 +12,26 @@ namespace AppBlocks.MySqlService
     {
         public string ConnectionString { get; set; }
 
+        public MySqlService()
+        {
+        }
         public MySqlService(string connectionString)
         {
-            this.ConnectionString = connectionString;
+            ConnectionString = connectionString;
         }
-
+        
         private MySqlConnection GetConnection()
         {
-            return new MySqlConnection(ConnectionString);
+            return new MySqlConnection(ConnectionString ?? Config.Factory.GetConnectionString(typeof(MySqlService).Namespace) ?? Config.Factory.GetConnectionString("MySqlAppBlocks") ?? Config.Factory.GetConnectionString("MySqlDefaultConnection"));
         }
 
         public Item Create(Item item)
         {
             //_items.InsertOne(item);
             //return item;
-
             using MySqlConnection conn = GetConnection();
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("insert into Item", conn);
-
+            MySqlCommand cmd = new("insert into Item", conn);
             int results = cmd.ExecuteNonQuery();
             return Get(item.Id);
         }
