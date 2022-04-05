@@ -12,4 +12,4 @@ PM> ```Install-Package AppBlocks.MySqlService```
 - 0.0.1 - init
 
 ## License
-MIT License: https://github.com/AppBlocksNet/AppBlocks.Models/blob/main/LICENSE
+MIT License: https://github.com/AppBlocksNet/AppBlocks.MySqlService/blob/main/LICENSE
