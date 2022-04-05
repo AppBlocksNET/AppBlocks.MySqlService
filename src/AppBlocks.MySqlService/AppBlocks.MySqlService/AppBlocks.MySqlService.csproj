@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>David Walker, Radical Dave</Authors>
+    <Company>AppBlocks, David Walker, Radical Dave</Company>
+    <Description>AppBlocks for MySql</Description>
+    <Copyright>AppBlocks, David Walker, Radical Dave</Copyright>
+    <PackageProjectUrl>https://appblocks.net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/appblocksnet/appblocks.mysqlservice</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>appblocks,mysql</PackageTags>
+    <PackageReleaseNotes>init</PackageReleaseNotes>
+    <PackageLicenseFile></PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AppBlocks.Models" Version="0.0.23" />
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
+  </ItemGroup>
+
+</Project>
